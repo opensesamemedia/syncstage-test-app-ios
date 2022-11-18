@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "syncstageswiftpackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/opensesamemedia/SyncStageSwiftPackage.git",
+      "state" : {
+        "revision" : "f291a320d45164476d7fb3a9996e2a7e5641cd7f",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}

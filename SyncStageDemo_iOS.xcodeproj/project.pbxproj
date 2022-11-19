@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A424AF5B2928CE44003CE469 /* SyncStageSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A424AF5A2928CE44003CE469 /* SyncStageSDK */; };
 		A42799032846009C00804C62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42799022846009C00804C62 /* AppDelegate.swift */; };
 		A42799052846009C00804C62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42799042846009C00804C62 /* SceneDelegate.swift */; };
 		A42799072846009C00804C62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42799062846009C00804C62 /* ViewController.swift */; };
@@ -27,7 +28,6 @@
 		A4C66329291D74B300518F9B /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C66328291D74B300518F9B /* OptionsViewController.swift */; };
 		A4C663862927FBDB00518F9B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C663852927FBDB00518F9B /* UserCell.swift */; };
 		A4C663882927FC2500518F9B /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C663872927FC2500518F9B /* ConnectionModel.swift */; };
-		A4CD62102928193100E7D3EF /* SyncStageSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A4CD620F2928193100E7D3EF /* SyncStageSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4CD62102928193100E7D3EF /* SyncStageSDK in Frameworks */,
+				A424AF5B2928CE44003CE469 /* SyncStageSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +166,7 @@
 			);
 			name = SyncStageDemo_iOS;
 			packageProductDependencies = (
-				A4CD620F2928193100E7D3EF /* SyncStageSDK */,
+				A424AF5A2928CE44003CE469 /* SyncStageSDK */,
 			);
 			productName = SyncStageDemo_iOS;
 			productReference = A42798FF2846009C00804C62 /* SyncStageDemo_iOS.app */;
@@ -197,7 +197,7 @@
 			);
 			mainGroup = A42798F62846009C00804C62;
 			packageReferences = (
-				A4CD620E2928193100E7D3EF /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */,
+				A424AF592928CE44003CE469 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */,
 			);
 			productRefGroup = A42799002846009C00804C62 /* Products */;
 			projectDirPath = "";
@@ -408,7 +408,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.openSesameMedia.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openSesameMedia.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SyncStageTestAppDev;
@@ -444,7 +444,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.openSesameMedia.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openSesameMedia.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SyncStageTestAppDev;
@@ -478,7 +478,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A4CD620E2928193100E7D3EF /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */ = {
+		A424AF592928CE44003CE469 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/opensesamemedia/SyncStageSwiftPackage.git";
 			requirement = {
@@ -489,9 +489,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A4CD620F2928193100E7D3EF /* SyncStageSDK */ = {
+		A424AF5A2928CE44003CE469 /* SyncStageSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A4CD620E2928193100E7D3EF /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */;
+			package = A424AF592928CE44003CE469 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */;
 			productName = SyncStageSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

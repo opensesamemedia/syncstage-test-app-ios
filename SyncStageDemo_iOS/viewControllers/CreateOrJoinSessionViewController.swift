@@ -34,6 +34,7 @@ class CreateOrJoinSessionViewController: UIViewController {
         SyncStageHelper.instance = SyncStage(completion: { error in
             if let error = error {
                 NSLog(error.localizedDescription)
+                return
             }
             
             hud.hide()

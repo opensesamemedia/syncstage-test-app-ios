@@ -68,14 +68,12 @@ class CurrentSessionViewController: UIViewController {
     }
 
     @IBAction func endSession() {
-        if let transmitterId = session?.transmitter?.identifier {
-            let hud = HUDView.show(view: view)
-            SyncStageHelper.instance.leave(transmitterId: transmitterId, completion: { [weak self] error in
-                NSLog("Session left.")
-                hud.hide()
-                self?.navigationController?.popViewController(animated: true)
-            })
-        }
+        let hud = HUDView.show(view: view)
+        SyncStageHelper.instance.leave(completion: { [weak self] error in
+            NSLog("Session left.")
+            hud.hide()
+            self?.navigationController?.popViewController(animated: true)
+        })
     }
 
     @IBAction func mute() {

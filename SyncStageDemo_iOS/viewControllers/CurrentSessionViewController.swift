@@ -22,6 +22,8 @@ class CurrentSessionViewController: UIViewController {
     var isMuted = false
     var connections = [ConnectionModel]()
     
+    var timer: Timer?
+    
     @IBAction func unwind(_ segue: UIStoryboardSegue) { }
 
     override func viewDidLoad() {
@@ -42,6 +44,9 @@ class CurrentSessionViewController: UIViewController {
                 self?.session = session
                 self?.update(session: session)
                 self?.tableView.reloadData()
+                self?.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { timer in
+                    self?.tableView.reloadData()
+                })
             case .failure(let error):
                 NSLog(error.localizedDescription)
                 let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
@@ -89,6 +94,22 @@ class CurrentSessionViewController: UIViewController {
         muteButton.setImage(image, for: .normal)
         tableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "options" {
+            segue.destination.preferredContentSize = CGSize(width: 320, height: 200)
+            if let presentationController = segue.destination.popoverPresentationController {
+                presentationController.delegate = self
+            }
+        }
+    }
+}
+
+extension CurrentSessionViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController,
+                                   traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
 }
 
 extension CurrentSessionViewController: UITableViewDataSource {
@@ -114,6 +135,11 @@ extension CurrentSessionViewController: UITableViewDataSource {
             cell.accessoryType = .none
             
             cell.connectionId = connection.identifier
+            
+            let measurements = indexPath.row == 0 ? SyncStageHelper.instance.getTransmitterMeasurements() : SyncStageHelper.instance.getReceiverMeasurements(identifier: connection.identifier)
+            cell.jitterLabel.text = "\(measurements.networkJitterMs) ms"
+            cell.qualityLabel.text = "\(measurements.quality) %"
+            cell.pingLabel.text = "\(measurements.networkDelayMs) ms"
 
             return cell
         }

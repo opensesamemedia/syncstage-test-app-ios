@@ -12,10 +12,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet var userNameTextField: UITextField!
     
     private let nextSegueIdentifier = "JoinOrCreateSession"
+    private let userNameKey = "userNameKey"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if let userName = UserDefaults.standard.string(forKey: userNameKey) {
+            userNameTextField.text = userName
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +32,7 @@ class ProfileViewController: UIViewController {
         if userNameTextField.text?.isEmpty == true {
             self.showAlert(with: "Warning", message: "Please enter your user name.")
         } else {
+            updateUserName()
             self.performSegue(withIdentifier: nextSegueIdentifier, sender: self)
         }
     }
@@ -41,11 +46,18 @@ class ProfileViewController: UIViewController {
             destVC.displayName = userNameTextField.text ?? ""
         }
     }
+    
+    func updateUserName() {
+        if let userName = userNameTextField.text {
+            UserDefaults.standard.set(userName, forKey: userNameKey)
+        }
+    }
 }
 
 extension ProfileViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        updateUserName()
         self.performSegue(withIdentifier: nextSegueIdentifier, sender: self)
         return true
     }

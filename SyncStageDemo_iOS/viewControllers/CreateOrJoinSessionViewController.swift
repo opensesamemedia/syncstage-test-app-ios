@@ -18,7 +18,8 @@ class CreateOrJoinSessionViewController: UIViewController {
     var displayName = ""
     var code = ""
     var isSyncStageReady = false
-    let userId = UUID().uuidString
+    var userId = ""
+    let userIdKey = "userIdKey"
     
     private let startNewSessionSegueIdentifier = "startNewSession"
     private let joinSessionSegueIdentifier = "JoinSessionByCode"
@@ -30,14 +31,29 @@ class CreateOrJoinSessionViewController: UIViewController {
         label.attributedText = NSMutableAttributedString().systemFontWith(text: "Sessions", size: 24, weight: .semibold)
             .systemFontWith(text: "\nEnter a code to join an existing session or create a new one.", size: fontSize, weight: .regular)
         
+        if let value = UserDefaults.standard.string(forKey: userIdKey) {
+            userId = value
+        } else {
+            userId = UUID().uuidString
+            UserDefaults.standard.set(userId, forKey: userIdKey)
+        }
+        
+        initSyncStage()
+    }
+    
+    func initSyncStage() {
         let hud = HUDView.show(view: view)
         SyncStageHelper.instance = SyncStage(completion: { error in
+            hud.hide()
             if let error = error {
                 NSLog(error.localizedDescription)
+                let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+                    self?.initSyncStage()
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                self.showAlert(with: "Warning", message: "Failed to initiate SyncStage SDK, please retry.", actions: [retryAction, cancelAction])
                 return
             }
-            
-            hud.hide()
             NSLog("SyncStage initiation completed.")
         })
     }

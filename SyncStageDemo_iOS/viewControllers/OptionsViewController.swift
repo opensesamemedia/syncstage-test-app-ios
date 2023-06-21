@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFAudio
 
 class OptionsViewController: UIViewController {
     
@@ -26,6 +27,12 @@ class OptionsViewController: UIViewController {
     @IBAction func directMonitorVolumeChanged(sender: UISlider) {
         SyncStageHelper.instance.changeDirectMonitorVolume(volume: sender.value)
     }
+    
+    func enableOptions(enabled: Bool) {
+        directMonitor.isEnabled = enabled
+        internalMic.isEnabled = enabled
+        directMonitorVolume.isEnabled = enabled
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +40,35 @@ class OptionsViewController: UIViewController {
         directMonitor.isOn = SyncStageHelper.directMonitorEnabled
         internalMic.isOn = SyncStageHelper.internalMicEnabled
         directMonitorVolume.value = SyncStageHelper.instance.getDirectMonitorVolume()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleRouteChange),
+                                               name: AVAudioSession.routeChangeNotification,
+                                               object: nil)
+        let headphoneConnected = areHeadphonesConnected()
+        enableOptions(enabled: headphoneConnected)
+    }
+    
+    @objc func handleRouteChange(notification: Notification) {
+        let headphonesConnected = areHeadphonesConnected()
+        enableOptions(enabled: headphonesConnected)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
 
-    @IBAction func dismiss(sender: UIButton) {
-        performSegue(withIdentifier: "dismissControls", sender: self)
+    func areHeadphonesConnected() -> Bool {
+        let audioSession = AVAudioSession.sharedInstance()
+        if audioSession.currentRoute.outputs.contains(where: { $0.portType != AVAudioSession.Port.builtInSpeaker && $0.portType != AVAudioSession.Port.builtInReceiver }) {
+            return true
+        }
+
+        if let availableInputs = audioSession.availableInputs,
+           availableInputs.contains(where: { $0.portType == AVAudioSession.Port.headsetMic || $0.portType == AVAudioSession.Port.usbAudio }) {
+            return true
+        }
+
+        return false
     }
 }

@@ -28,6 +28,10 @@ class SessionLocationViewController: UIViewController {
         label.attributedText = NSMutableAttributedString().systemFontWith(text: "Session location", size: 24, weight: .semibold)
             .systemFontWith(text: "\nSelect the closest location for all session participants.", size: 14, weight: .regular)
 
+        getZonesList()
+    }
+    
+    func getZonesList() {
         // get zones list
         let hud = HUDView.show(view: view)
         SyncStageHelper.instance.zoneList(completion: { [weak self] result in
@@ -38,7 +42,12 @@ class SessionLocationViewController: UIViewController {
                 self?.zoneId = zones.first?.zoneId
                 self?.locationPickerView.reloadAllComponents()
             case .failure(let error):
-                self?.showAlert(with: "Warning", message: error.localizedDescription)
+                NSLog(error.localizedDescription)
+                let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+                    self?.getZonesList()
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                self?.showAlert(with: "Warning", message: "Failed to get zones list, please retry.", actions: [retryAction, cancelAction])
             }
         })
     }
@@ -50,7 +59,7 @@ class SessionLocationViewController: UIViewController {
         }
 
         let hud = HUDView.show(view: view)
-        SyncStageHelper.instance.createSession(zoneId: zoneId, userId: "", completion: { [weak self] result in
+        SyncStageHelper.instance.createSession(zoneId: zoneId, userId: userId, completion: { [weak self] result in
             hud.hide()
             switch result {
             case .success(let sessionIdentifier):

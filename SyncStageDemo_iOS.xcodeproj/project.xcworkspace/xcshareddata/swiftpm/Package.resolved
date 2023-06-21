@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/opensesamemedia/SyncStageSwiftPackage.git",
       "state" : {
-        "revision" : "940dfa56867a3b75f2ac0f797e6fbeeffffec096",
-        "version" : "0.2.0"
+        "revision" : "083fbd3aae2ed35aabdd500eea904e38208f49fb",
+        "version" : "0.3.1"
       }
     }
   ],

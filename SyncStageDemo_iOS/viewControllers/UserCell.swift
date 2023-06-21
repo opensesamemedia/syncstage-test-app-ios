@@ -13,6 +13,9 @@ class UserCell: UITableViewCell {
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var volumeSlider: UISlider!
     @IBOutlet var isMutedImageView: UIImageView!
+    @IBOutlet var jitterLabel: UILabel!
+    @IBOutlet var qualityLabel: UILabel!
+    @IBOutlet var pingLabel: UILabel!
     
     var connectionId = ""
 

@@ -7,12 +7,16 @@
 
 import UIKit
 import AVFAudio
+import SyncStageSDK
 
 class OptionsViewController: UIViewController {
     
     @IBOutlet var directMonitor: UISwitch!
     @IBOutlet var internalMic: UISwitch!
     @IBOutlet var directMonitorVolume: UISlider!
+    @IBOutlet var latencyPicker: UIPickerView!
+    
+    let latencyOptions = ["High quality", "Optimized", "Best performance", "Ultra fast"]
 
     @IBAction func directMonitorChanged(sender: UISwitch) {
         SyncStageHelper.instance.toggleDirectMonitor(enable: sender.isOn)
@@ -47,6 +51,9 @@ class OptionsViewController: UIViewController {
                                                object: nil)
         let headphoneConnected = areHeadphonesConnected()
         enableOptions(enabled: headphoneConnected)
+        
+        let selectedValue = SyncStageHelper.instance.getLatencyOptimizationLevel()
+        latencyPicker.selectRow(selectedValue.rawValue, inComponent: 0, animated: false)
     }
     
     @objc func handleRouteChange(notification: Notification) {
@@ -70,5 +77,33 @@ class OptionsViewController: UIViewController {
         }
 
         return false
+    }
+}
+
+extension OptionsViewController: UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return latencyOptions.count
+    }
+}
+
+extension OptionsViewController: UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.label
+        pickerLabel.text = latencyOptions[row]
+        pickerLabel.font = UIFont.systemFont(ofSize: 14)
+        pickerLabel.textAlignment = NSTextAlignment.center
+        return pickerLabel
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let latency = LatencyOptimizationLevel(rawValue: row) ?? .optimized
+        SyncStageHelper.instance.changeLatencyOptimizationLevel(value: latency)
     }
 }

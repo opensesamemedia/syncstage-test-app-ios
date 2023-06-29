@@ -17,7 +17,7 @@ class CurrentSessionViewController: UIViewController {
     var displayName: String!
     var userId: String!
     var code: String!
-    
+    var server: ServerInstance!
     var session: Session?
     var isMuted = false
     var connections = [ConnectionModel]()
@@ -37,7 +37,12 @@ class CurrentSessionViewController: UIViewController {
         
         // get zones list
         let hud = HUDView.show(view: view)
-        SyncStageHelper.instance.join(sessionCode: code, userId: userId, displayName: displayName, completion: { [weak self] result in
+        SyncStageHelper.instance.join(sessionCode: code,
+                                      userId: userId,
+                                      displayName: displayName,
+                                      zoneId: server.zoneId,
+                                      studioServerId: server.studioServerId,
+                                      completion: { [weak self] result in
             hud.hide()
             switch result {
             case .success(let session):
@@ -97,7 +102,7 @@ class CurrentSessionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "options" {
-            segue.destination.preferredContentSize = CGSize(width: 320, height: 200)
+            segue.destination.preferredContentSize = CGSize(width: 320, height: 300)
             if let presentationController = segue.destination.popoverPresentationController {
                 presentationController.delegate = self
             }

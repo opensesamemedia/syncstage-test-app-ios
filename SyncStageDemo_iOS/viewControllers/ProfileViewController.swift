@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var userNameTextField: UITextField!
     
-    private let nextSegueIdentifier = "JoinOrCreateSession"
+    private let nextSegueIdentifier = "Discovery"
     private let userNameKey = "userNameKey"
 
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == nextSegueIdentifier, let destVC = segue.destination as? CreateOrJoinSessionViewController {
+        if segue.identifier == nextSegueIdentifier, let destVC = segue.destination as? DiscoveryViewController {
             destVC.displayName = userNameTextField.text ?? ""
         }
     }

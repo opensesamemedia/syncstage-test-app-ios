@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A424AF5B2928CE44003CE469 /* SyncStageSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A424AF5A2928CE44003CE469 /* SyncStageSDK */; };
 		A42799032846009C00804C62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42799022846009C00804C62 /* AppDelegate.swift */; };
 		A42799052846009C00804C62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42799042846009C00804C62 /* SceneDelegate.swift */; };
 		A42799072846009C00804C62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42799062846009C00804C62 /* ViewController.swift */; };
@@ -28,20 +27,10 @@
 		A4C66329291D74B300518F9B /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C66328291D74B300518F9B /* OptionsViewController.swift */; };
 		A4C663862927FBDB00518F9B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C663852927FBDB00518F9B /* UserCell.swift */; };
 		A4C663882927FC2500518F9B /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C663872927FC2500518F9B /* ConnectionModel.swift */; };
+		A4FEE79D2A4BE7B20089D501 /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE79C2A4BE7B20089D501 /* DiscoveryViewController.swift */; };
+		A4FEE79F2A4BE7C90089D501 /* StartDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE79E2A4BE7C90089D501 /* StartDiscoveryViewController.swift */; };
+		A4FEE7DA2A4C45270089D501 /* SyncStageSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A4FEE7D92A4C45270089D501 /* SyncStageSDK */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		A480AA3128477E690063D96E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A42798FF2846009C00804C62 /* SyncStageDemo_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncStageDemo_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +55,8 @@
 		A4C66328291D74B300518F9B /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		A4C663852927FBDB00518F9B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		A4C663872927FC2500518F9B /* ConnectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModel.swift; sourceTree = "<group>"; };
+		A4FEE79C2A4BE7B20089D501 /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
+		A4FEE79E2A4BE7C90089D501 /* StartDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDiscoveryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A424AF5B2928CE44003CE469 /* SyncStageSDK in Frameworks */,
+				A4FEE7DA2A4C45270089D501 /* SyncStageSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +111,8 @@
 				A4C077C12864633900BE413D /* IntroViewController.swift */,
 				A480AA272847311C0063D96E /* MicrophoneAccessViewController.swift */,
 				A4958AD5291A6F2E0084C7C9 /* ProfileViewController.swift */,
+				A4FEE79C2A4BE7B20089D501 /* DiscoveryViewController.swift */,
+				A4FEE79E2A4BE7C90089D501 /* StartDiscoveryViewController.swift */,
 				A4C66315291A77B300518F9B /* CreateOrJoinSessionViewController.swift */,
 				A4C66317291AA56B00518F9B /* SessionLocationViewController.swift */,
 				A4C66324291BEE1200518F9B /* CurrentSessionViewController.swift */,
@@ -158,7 +151,6 @@
 				A42798FB2846009C00804C62 /* Sources */,
 				A42798FC2846009C00804C62 /* Frameworks */,
 				A42798FD2846009C00804C62 /* Resources */,
-				A480AA3128477E690063D96E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,7 +158,7 @@
 			);
 			name = SyncStageDemo_iOS;
 			packageProductDependencies = (
-				A424AF5A2928CE44003CE469 /* SyncStageSDK */,
+				A4FEE7D92A4C45270089D501 /* SyncStageSDK */,
 			);
 			productName = SyncStageDemo_iOS;
 			productReference = A42798FF2846009C00804C62 /* SyncStageDemo_iOS.app */;
@@ -197,7 +189,7 @@
 			);
 			mainGroup = A42798F62846009C00804C62;
 			packageReferences = (
-				A424AF592928CE44003CE469 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */,
+				A4FEE7D82A4C45270089D501 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */,
 			);
 			productRefGroup = A42799002846009C00804C62 /* Products */;
 			projectDirPath = "";
@@ -227,6 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A480AA3328477F040063D96E /* SyncStageSDK.swift in Sources */,
+				A4FEE79F2A4BE7C90089D501 /* StartDiscoveryViewController.swift in Sources */,
+				A4FEE79D2A4BE7B20089D501 /* DiscoveryViewController.swift in Sources */,
 				A4958AD6291A6F2E0084C7C9 /* ProfileViewController.swift in Sources */,
 				A4C077C22864633900BE413D /* IntroViewController.swift in Sources */,
 				A4C66329291D74B300518F9B /* OptionsViewController.swift in Sources */,
@@ -478,20 +472,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A424AF592928CE44003CE469 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */ = {
+		A4FEE7D82A4C45270089D501 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/opensesamemedia/SyncStageSwiftPackage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.1;
+				minimumVersion = 0.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A424AF5A2928CE44003CE469 /* SyncStageSDK */ = {
+		A4FEE7D92A4C45270089D501 /* SyncStageSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A424AF592928CE44003CE469 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */;
+			package = A4FEE7D82A4C45270089D501 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */;
 			productName = SyncStageSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -15,6 +15,7 @@ class CreateOrJoinSessionViewController: UIViewController {
     @IBOutlet var joinButton: UIButton!
     @IBOutlet var createSessionButton: UIButton!
     
+    var server: ServerInstance?
     var displayName = ""
     var code = ""
     var isSyncStageReady = false
@@ -37,25 +38,6 @@ class CreateOrJoinSessionViewController: UIViewController {
             userId = UUID().uuidString
             UserDefaults.standard.set(userId, forKey: userIdKey)
         }
-        
-        initSyncStage()
-    }
-    
-    func initSyncStage() {
-        let hud = HUDView.show(view: view)
-        SyncStageHelper.instance = SyncStage(completion: { error in
-            hud.hide()
-            if let error = error {
-                NSLog(error.localizedDescription)
-                let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
-                    self?.initSyncStage()
-                }
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-                self.showAlert(with: "Warning", message: "Failed to initiate SyncStage SDK, please retry.", actions: [retryAction, cancelAction])
-                return
-            }
-            NSLog("SyncStage initiation completed.")
-        })
     }
 
     @IBAction func joinSession() {
@@ -68,7 +50,22 @@ class CreateOrJoinSessionViewController: UIViewController {
     }
 
     @IBAction func createSession() {
-        self.performSegue(withIdentifier: startNewSessionSegueIdentifier, sender: self)
+        guard let server = server else {
+            self.showAlert(with: "Warning", message: "No studio server selected.")
+            return
+        }
+
+        let hud = HUDView.show(view: view)
+        SyncStageHelper.instance.createSession(zoneId: server.zoneId, studioServerId: server.studioServerId, userId: userId, completion: { [weak self] result in
+            hud.hide()
+            switch result {
+            case .success(let sessionIdentifier):
+                self?.code = sessionIdentifier.sessionCode
+                self?.performSegue(withIdentifier: self?.joinSessionSegueIdentifier ?? "", sender: self)
+            case .failure(let error):
+                self?.showAlert(with: "Warning", message: error.localizedDescription)
+            }
+        })
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -83,6 +80,7 @@ class CreateOrJoinSessionViewController: UIViewController {
             destVC.displayName = displayName
             destVC.userId = userId
             destVC.code = code
+            destVC.server = server
         }
     }
 }

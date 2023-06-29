@@ -13,8 +13,8 @@ class SessionLocationViewController: UIViewController {
     @IBOutlet var label: UILabel!
     @IBOutlet var locationPickerView: UIPickerView!
     
-    var zoneId: String?
-    var zonesList = [Zone]()
+    var servers = [ServerInstance]()
+    private var selectedServer: ServerInstance?
     
     var displayName = ""
     var userId = ""
@@ -28,54 +28,44 @@ class SessionLocationViewController: UIViewController {
         label.attributedText = NSMutableAttributedString().systemFontWith(text: "Session location", size: 24, weight: .semibold)
             .systemFontWith(text: "\nSelect the closest location for all session participants.", size: 14, weight: .regular)
 
-        getZonesList()
+        getServersList()
     }
     
-    func getZonesList() {
+    func getServersList() {
         // get zones list
         let hud = HUDView.show(view: view)
-        SyncStageHelper.instance.zoneList(completion: { [weak self] result in
+        SyncStageHelper.instance.getServerInstances { result in
             hud.hide()
             switch result {
-            case .success(let zones):
-                self?.zonesList = zones
-                self?.zoneId = zones.first?.zoneId
-                self?.locationPickerView.reloadAllComponents()
+            case .success(let servers):
+                self.servers = servers
+                self.selectedServer = servers.first
+                self.locationPickerView.reloadAllComponents()
             case .failure(let error):
                 NSLog(error.localizedDescription)
                 let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
-                    self?.getZonesList()
+                    self?.getServersList()
                 }
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-                self?.showAlert(with: "Warning", message: "Failed to get zones list, please retry.", actions: [retryAction, cancelAction])
+                self.showAlert(with: "Warning", message: "Failed to get servers list, please retry.", actions: [retryAction, cancelAction])
             }
-        })
+        }
     }
 
     @IBAction func startSession() {
-        guard let zoneId = zoneId else {
+        guard let _ = selectedServer else {
             self.showAlert(with: "Warning", message: "You should select a zone.")
             return
         }
 
-        let hud = HUDView.show(view: view)
-        SyncStageHelper.instance.createSession(zoneId: zoneId, userId: userId, completion: { [weak self] result in
-            hud.hide()
-            switch result {
-            case .success(let sessionIdentifier):
-                self?.sessionCode = sessionIdentifier.sessionCode
-                self?.performSegue(withIdentifier: self?.joinSessionSegueIdentifier ?? "", sender: self)
-            case .failure(let error):
-                self?.showAlert(with: "Warning", message: error.localizedDescription)
-            }
-        })
+        self.performSegue(withIdentifier: joinSessionSegueIdentifier , sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == joinSessionSegueIdentifier, let destVC = segue.destination as? CurrentSessionViewController {
+        if segue.identifier == joinSessionSegueIdentifier,
+           let destVC = segue.destination as? CreateOrJoinSessionViewController {
             destVC.displayName = displayName
-            destVC.userId = userId
-            destVC.code = sessionCode
+            destVC.server = selectedServer
         }
     }
 }
@@ -87,7 +77,7 @@ extension SessionLocationViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return zonesList.count
+        return servers.count
     }
 }
 
@@ -96,14 +86,13 @@ extension SessionLocationViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.label
-        pickerLabel.text = zonesList[row].zoneName
+        pickerLabel.text = servers[row].zoneName
         pickerLabel.font = UIFont.systemFont(ofSize: 14)
         pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let zone = zonesList[row]
-        zoneId = zone.zoneId
+        selectedServer = servers[row]
     }
 }

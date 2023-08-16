@@ -187,9 +187,9 @@ extension CurrentSessionViewController: UITableViewDataSource {
             cell.connectionId = connection.identifier
             
             let measurements = indexPath.row == 0 ? SyncStageHelper.instance.getTransmitterMeasurements() : SyncStageHelper.instance.getReceiverMeasurements(identifier: connection.identifier)
-            cell.jitterLabel.text = "\(measurements.networkJitterMs) ms"
+            cell.jitterLabel.text = measurements.networkJitterMs == -1 ? "N/A" : "\(measurements.networkJitterMs) ms"
             cell.qualityLabel.text = "\(measurements.quality) %"
-            cell.pingLabel.text = "\(measurements.networkDelayMs) ms"
+            cell.pingLabel.text = measurements.networkDelayMs == -1 ? "N/A" : "\(measurements.networkDelayMs) ms"
 
             return cell
         }

@@ -390,6 +390,7 @@
 				INFOPLIST_FILE = SyncStageDemo_iOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SyncStage;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera access for scanning QRCode";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app need your location to provide best feature based on location";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for audio recording";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -426,6 +427,7 @@
 				INFOPLIST_FILE = SyncStageDemo_iOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SyncStage;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera access for scanning QRCode";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app need your location to provide best feature based on location";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for audio recording";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -477,7 +479,7 @@
 			repositoryURL = "https://github.com/opensesamemedia/SyncStageSwiftPackage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.0;
+				minimumVersion = 0.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

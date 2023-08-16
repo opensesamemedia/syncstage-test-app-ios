@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hm-gK-JMW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hm-gK-JMW">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,19 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SyncStage Example Application" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcZ-xc-FC0">
-                                <rect key="frame" x="12.5" y="190" width="295" height="75"/>
+                                <rect key="frame" x="12.5" y="210" width="295" height="75"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="syncstage" translatesAutoresizingMaskIntoConstraints="NO" id="6nf-mZ-K2r">
-                                <rect key="frame" x="110" y="94" width="100" height="100"/>
+                                <rect key="frame" x="110" y="114" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Vgg-qb-gd9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfS-pI-xL3">
-                                <rect key="frame" x="20" y="292" width="280" height="153"/>
+                                <rect key="frame" x="20" y="312" width="280" height="153"/>
                                 <string key="text">SyncStage is a patent-pending voice chat platform that allows you to communicate with your team twice as fast as Discord, and designed specifically for the demands of multiplayer online competitive gaming such as League of Legends, CSGO, DOTA2 and Valorant.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-mT-ORy">
-                                <rect key="frame" x="120" y="103.5" width="80" height="80"/>
+                                <rect key="frame" x="120" y="123.5" width="80" height="80"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="OXd-mk-ua6"/>
@@ -114,7 +114,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SyncStage requires access to your microphone to let the others to hear you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oi3-D3-nfs">
-                                <rect key="frame" x="30" y="281" width="260" height="50.5"/>
+                                <rect key="frame" x="30" y="291" width="260" height="50.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rLd-Mz-tag">
-                                <rect key="frame" x="60" y="259" width="200" height="34"/>
+                                <rect key="frame" x="60" y="279" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Tcw-Is-Ipf"/>
                                 </constraints>
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter you display name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhR-wc-auy">
-                                <rect key="frame" x="44.5" y="205" width="231" height="31"/>
+                                <rect key="frame" x="44.5" y="225" width="231" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="231" id="ZUk-0f-AiM"/>
                                     <constraint firstAttribute="height" constant="31" id="zJ2-ee-4GO"/>
@@ -219,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltO-HP-08v">
-                                <rect key="frame" x="40" y="125" width="240" height="68"/>
+                                <rect key="frame" x="40" y="145" width="240" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="vRp-h4-mn3"/>
                                 </constraints>
@@ -228,7 +228,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rdq-eW-YLC">
-                                <rect key="frame" x="60" y="230" width="200" height="34"/>
+                                <rect key="frame" x="60" y="250" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="khb-ZU-uaK"/>
                                 </constraints>
@@ -239,13 +239,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rex-Cn-mhd">
-                                <rect key="frame" x="152" y="327" width="16" height="21"/>
+                                <rect key="frame" x="152" y="347" width="16" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgf-2l-8lp" customClass="RoundedButton" customModule="SyncStageDemo_iOS" customModuleProvider="target">
-                                <rect key="frame" x="120" y="282" width="80" height="45"/>
+                                <rect key="frame" x="120" y="302" width="80" height="45"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="5QJ-V7-ksc"/>
@@ -261,7 +261,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-w4-qVb" customClass="RoundedButton" customModule="SyncStageDemo_iOS" customModuleProvider="target">
-                                <rect key="frame" x="91.5" y="360" width="137" height="45"/>
+                                <rect key="frame" x="91.5" y="380" width="137" height="45"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="eg7-YC-UH8"/>
@@ -313,7 +313,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2hm-gK-JMW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b5o-Jb-73Z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -334,7 +334,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh6-Ee-wnf">
-                                <rect key="frame" x="40" y="125" width="240" height="68"/>
+                                <rect key="frame" x="40" y="145" width="240" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="6Au-Y9-Zfb"/>
                                 </constraints>
@@ -343,7 +343,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-yu-q0h">
-                                <rect key="frame" x="40" y="230" width="240" height="110"/>
+                                <rect key="frame" x="40" y="250" width="240" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="3GL-mw-z0q"/>
                                 </constraints>
@@ -476,7 +476,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xqP-vL-KS0">
-                                <rect key="frame" x="0.0" y="44" width="320" height="311"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="291"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="a9s-Si-Bgb">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -693,13 +693,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By default, SyncStage selects the best Studio Server for your session based on measurements." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-Jj-Qfm">
-                                <rect key="frame" x="16" y="205" width="288" height="54"/>
+                                <rect key="frame" x="16" y="225" width="288" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="hhy-ZS-UmK">
-                                <rect key="frame" x="37.5" y="281" width="245.5" height="31"/>
+                                <rect key="frame" x="37.5" y="301" width="245.5" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automated selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyX-Eq-pXk">
                                         <rect key="frame" x="0.0" y="0.0" width="156.5" height="31"/>
@@ -761,13 +761,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for the best Studio Server..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-N2-57v">
-                                <rect key="frame" x="15" y="205" width="290" height="18"/>
+                                <rect key="frame" x="15" y="225" width="290" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-ED-ULa">
-                                <rect key="frame" x="10" y="254" width="300" height="226"/>
+                                <rect key="frame" x="10" y="274" width="300" height="226"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="226" id="GP9-iN-jgC"/>
@@ -860,11 +860,11 @@
             <objects>
                 <viewController id="klV-4g-EFB" customClass="OptionsViewController" customModule="SyncStageDemo_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lub-mn-AK5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="INm-46-BCE">
-                                <rect key="frame" x="10" y="10" width="300" height="256"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="INm-46-BCE">
+                                <rect key="frame" x="10" y="10" width="300" height="317"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6rI-c2-5P4">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="31"/>
@@ -894,7 +894,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="anr-9t-DOT">
-                                        <rect key="frame" x="0.0" y="41" width="300" height="31"/>
+                                        <rect key="frame" x="0.0" y="46" width="300" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internal Microphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ems-x6-36P">
                                                 <rect key="frame" x="0.0" y="0.0" width="153" height="31"/>
@@ -921,7 +921,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="7iJ-AO-9qI">
-                                        <rect key="frame" x="0.0" y="82" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="92" width="300" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Direct Monitor volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJv-hd-uAA">
                                                 <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
@@ -941,7 +941,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="qdt-6x-hPk">
-                                        <rect key="frame" x="0.0" y="122" width="300" height="95"/>
+                                        <rect key="frame" x="0.0" y="137" width="300" height="136"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latency optimization level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkd-iJ-W3G">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
@@ -959,10 +959,23 @@
                                                     <outlet property="delegate" destination="klV-4g-EFB" id="4fT-jC-Eb1"/>
                                                 </connections>
                                             </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dq1-2h-J0C" customClass="RoundedButton" customModule="SyncStageDemo_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="102" width="300" height="34"/>
+                                                <color key="backgroundColor" systemColor="labelColor"/>
+                                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="  Start recording">
+                                                    <imageReference key="image" image="record.circle" catalog="system" symbolScale="medium"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="startRecordingWithSender:" destination="klV-4g-EFB" eventType="touchUpInside" id="cTs-Gn-HrK"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: A headphone required to enable the direct monitor feature." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKV-mj-pWV">
-                                        <rect key="frame" x="0.0" y="227" width="300" height="29"/>
+                                        <rect key="frame" x="0.0" y="288" width="300" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -978,12 +991,13 @@
                             <constraint firstItem="INm-46-BCE" firstAttribute="leading" secondItem="lub-mn-AK5" secondAttribute="leading" constant="10" id="X2I-cy-7mq"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="320" height="300"/>
+                    <size key="freeformSize" width="320" height="350"/>
                     <connections>
                         <outlet property="directMonitor" destination="xCk-Cd-2xB" id="tBP-74-SfG"/>
                         <outlet property="directMonitorVolume" destination="m2d-qD-DfN" id="QBM-dn-ps8"/>
                         <outlet property="internalMic" destination="kAS-u5-7Is" id="PbF-et-17j"/>
                         <outlet property="latencyPicker" destination="3QB-xg-2Gb" id="8FQ-fP-Ady"/>
+                        <outlet property="recordingButton" destination="Dq1-2h-J0C" id="aCD-Xf-iiU"/>
                         <segue destination="JXn-g0-EZv" kind="unwind" identifier="dismissControls" unwindAction="unwind:" id="frd-SA-Uhu"/>
                     </connections>
                 </viewController>
@@ -1001,6 +1015,7 @@
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="mic" catalog="system" width="110" height="128"/>
         <image name="phone.down" catalog="system" width="128" height="57"/>
+        <image name="record.circle" catalog="system" width="128" height="123"/>
         <image name="syncstage" width="350" height="332"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

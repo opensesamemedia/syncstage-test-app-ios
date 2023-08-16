@@ -14,6 +14,9 @@ class CurrentSessionViewController: UIViewController {
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var muteButton: UIButton!
     
+    var recordingStackView: UIStackView!
+    var popoverViewController: OptionsViewController?
+    
     var displayName: String!
     var userId: String!
     var code: String!
@@ -30,6 +33,40 @@ class CurrentSessionViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationItem.hidesBackButton = true
+        
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text = "Session"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        
+        let markerSize = 12.0
+        let recordingMarker = UIView()
+        recordingMarker.backgroundColor = .red
+        recordingMarker.layer.cornerRadius = markerSize / 2
+        NSLayoutConstraint.activate([
+            recordingMarker.heightAnchor.constraint(equalToConstant: markerSize),
+            recordingMarker.widthAnchor.constraint(equalToConstant: markerSize)
+        ])
+        
+        let recordingLabel = UILabel()
+        recordingLabel.translatesAutoresizingMaskIntoConstraints = false
+        recordingLabel.text = "REC"
+        recordingLabel.textColor = .darkGray
+        recordingLabel.font = UIFont.systemFont(ofSize: 13, weight: .light)
+        
+        let horizontalStack = UIStackView(arrangedSubviews: [recordingMarker, recordingLabel])
+        horizontalStack.axis = .horizontal
+        horizontalStack.spacing = 5
+        horizontalStack.isHidden = true
+        
+        recordingStackView = horizontalStack
+        
+        let titleView = UIStackView(arrangedSubviews: [titleLabel, horizontalStack])
+        titleView.axis = .vertical
+        titleView.alignment = .center
+        titleView.spacing = 5
+        
+        self.navigationItem.titleView = titleView
         
         SyncStageHelper.instance.userDelegate = self
         SyncStageHelper.instance.connectivityDelegate = self
@@ -70,6 +107,9 @@ class CurrentSessionViewController: UIViewController {
         for receiver in session.receivers {
             connections.append(ConnectionModel(connection: receiver))
         }
+        
+        recordingStackView.isHidden = session.recordingStatus == RecordingStatus.stopped
+        SyncStageHelper.recordingStarted = session.recordingStatus == .started
     }
     
     @IBAction func copyToClipboard() {
@@ -102,7 +142,7 @@ class CurrentSessionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "options" {
-            segue.destination.preferredContentSize = CGSize(width: 320, height: 300)
+            segue.destination.preferredContentSize = CGSize(width: 320, height: 350)
             if let presentationController = segue.destination.popoverPresentationController {
                 presentationController.delegate = self
             }
@@ -113,7 +153,12 @@ class CurrentSessionViewController: UIViewController {
 extension CurrentSessionViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController,
                                    traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        popoverViewController = controller.presentedViewController as? OptionsViewController
         return .none
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        popoverViewController = nil
     }
 }
 
@@ -171,8 +216,9 @@ extension CurrentSessionViewController: SyncStageConnectivityDelegate {
 }
 
 extension CurrentSessionViewController: SyncStageUserDelegate {
-    
+
     func sessionOut() {
+        popoverViewController?.dismiss(animated: true)
         let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }
@@ -202,5 +248,17 @@ extension CurrentSessionViewController: SyncStageUserDelegate {
             connections[index].isMuted = false
             reloadCellAt(index: index)
         }
+    }
+    
+    func sessionRecordingStarted() {
+        recordingStackView.isHidden = false
+        SyncStageHelper.recordingStarted = true
+        popoverViewController?.updateRecordingButton()
+    }
+    
+    func sessionRecordingStopped() {
+        recordingStackView.isHidden = true
+        SyncStageHelper.recordingStarted = false
+        popoverViewController?.updateRecordingButton()
     }
 }

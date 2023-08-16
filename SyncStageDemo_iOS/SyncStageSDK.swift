@@ -12,4 +12,5 @@ class SyncStageHelper {
     static var instance: SyncStage!
     static var directMonitorEnabled = false
     static var internalMicEnabled = false
+    static var recordingStarted = false
 }

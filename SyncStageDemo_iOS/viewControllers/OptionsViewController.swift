@@ -15,6 +15,7 @@ class OptionsViewController: UIViewController {
     @IBOutlet var internalMic: UISwitch!
     @IBOutlet var directMonitorVolume: UISlider!
     @IBOutlet var latencyPicker: UIPickerView!
+    @IBOutlet var recordingButton: RoundedButton!
     
     let latencyOptions = ["High quality", "Optimized", "Best performance", "Ultra fast"]
 
@@ -30,6 +31,37 @@ class OptionsViewController: UIViewController {
     
     @IBAction func directMonitorVolumeChanged(sender: UISlider) {
         SyncStageHelper.instance.changeDirectMonitorVolume(volume: sender.value)
+    }
+    
+    @IBAction func startRecording(sender: UIButton) {
+        if SyncStageHelper.recordingStarted {
+            sender.isEnabled = false
+            SyncStageHelper.instance.stopRecording { error in
+                sender.isEnabled = true
+                if let error {
+                    NSLog("Failed to stop recording with error: \(error.localizedDescription)")
+                } else {
+                    SyncStageHelper.recordingStarted = false
+                    self.updateRecordingButton()
+                }
+            }
+        } else {
+            sender.isEnabled = false
+            SyncStageHelper.instance.startRecording { error in
+                sender.isEnabled = true
+                if let error {
+                    NSLog("Failed to start recording with error: \(error.localizedDescription)")
+                } else {
+                    SyncStageHelper.recordingStarted = true
+                    self.updateRecordingButton()
+                }
+            }
+        }
+    }
+    
+    func updateRecordingButton() {
+        let title = SyncStageHelper.recordingStarted ? "  Stop recording" : "  Start recording"
+        recordingButton.setTitle(title, for: .normal)
     }
     
     func enableOptions(enabled: Bool) {
@@ -54,6 +86,8 @@ class OptionsViewController: UIViewController {
         
         let selectedValue = SyncStageHelper.instance.getLatencyOptimizationLevel()
         latencyPicker.selectRow(selectedValue.rawValue, inComponent: 0, animated: false)
+        
+        updateRecordingButton()
     }
     
     @objc func handleRouteChange(notification: Notification) {

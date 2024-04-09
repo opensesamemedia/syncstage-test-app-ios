@@ -74,6 +74,7 @@ class CurrentSessionViewController: UIViewController {
         
         // get zones list
         let hud = HUDView.show(view: view)
+        SyncStageHelper.instance.toggleNoiseCancellation(enable: SyncStageHelper.noiseCancellationEnabled)
         SyncStageHelper.instance.join(sessionCode: code,
                                       userId: userId,
                                       displayName: displayName,
@@ -142,7 +143,7 @@ class CurrentSessionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "options" {
-            segue.destination.preferredContentSize = CGSize(width: 320, height: 350)
+            segue.destination.preferredContentSize = CGSize(width: 320, height: 400)
             if let presentationController = segue.destination.popoverPresentationController {
                 presentationController.delegate = self
             }

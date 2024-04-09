@@ -13,6 +13,7 @@ class OptionsViewController: UIViewController {
     
     @IBOutlet var directMonitor: UISwitch!
     @IBOutlet var internalMic: UISwitch!
+    @IBOutlet var noiseCancellation: UISwitch!
     @IBOutlet var directMonitorVolume: UISlider!
     @IBOutlet var latencyPicker: UIPickerView!
     @IBOutlet var recordingButton: RoundedButton!
@@ -22,6 +23,11 @@ class OptionsViewController: UIViewController {
     @IBAction func directMonitorChanged(sender: UISwitch) {
         SyncStageHelper.instance.toggleDirectMonitor(enable: sender.isOn)
         SyncStageHelper.directMonitorEnabled = sender.isOn
+    }
+    
+    @IBAction func noiseCancellationChanged(sender: UISwitch) {
+        SyncStageHelper.instance.toggleNoiseCancellation(enable: sender.isOn)
+        SyncStageHelper.noiseCancellationEnabled = sender.isOn
     }
 
     @IBAction func internalMicChanged(sender: UISwitch) {
@@ -76,6 +82,7 @@ class OptionsViewController: UIViewController {
         directMonitor.isOn = SyncStageHelper.directMonitorEnabled
         internalMic.isOn = SyncStageHelper.internalMicEnabled
         directMonitorVolume.value = SyncStageHelper.instance.getDirectMonitorVolume()
+        noiseCancellation.isOn = SyncStageHelper.noiseCancellationEnabled
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleRouteChange),

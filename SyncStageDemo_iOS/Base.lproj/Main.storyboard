@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hm-gK-JMW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hm-gK-JMW">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -860,11 +860,11 @@
             <objects>
                 <viewController id="klV-4g-EFB" customClass="OptionsViewController" customModule="SyncStageDemo_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lub-mn-AK5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="INm-46-BCE">
-                                <rect key="frame" x="10" y="10" width="300" height="317"/>
+                                <rect key="frame" x="10" y="10" width="300" height="363"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6rI-c2-5P4">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="31"/>
@@ -920,8 +920,35 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fOt-Jn-PK0">
+                                        <rect key="frame" x="0.0" y="92" width="300" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noise cancellation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bH-eZ-vhu">
+                                                <rect key="frame" x="0.0" y="0.0" width="153" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="153" id="dIN-bx-0RZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bkr-zY-t4S">
+                                                <rect key="frame" x="163" y="0.0" width="62" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="Zxt-PW-lm8"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="noiseCancellationChangedWithSender:" destination="klV-4g-EFB" eventType="valueChanged" id="a3S-EH-fvg"/>
+                                                </connections>
+                                            </switch>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3H-ao-aQW">
+                                                <rect key="frame" x="233" y="0.0" width="67" height="31"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="7iJ-AO-9qI">
-                                        <rect key="frame" x="0.0" y="92" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="138" width="300" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Direct Monitor volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJv-hd-uAA">
                                                 <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
@@ -941,7 +968,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="qdt-6x-hPk">
-                                        <rect key="frame" x="0.0" y="137" width="300" height="136"/>
+                                        <rect key="frame" x="0.0" y="183" width="300" height="136"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latency optimization level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkd-iJ-W3G">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
@@ -975,7 +1002,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: A headphone required to enable the direct monitor feature." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKV-mj-pWV">
-                                        <rect key="frame" x="0.0" y="288" width="300" height="29"/>
+                                        <rect key="frame" x="0.0" y="334" width="300" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -991,12 +1018,13 @@
                             <constraint firstItem="INm-46-BCE" firstAttribute="leading" secondItem="lub-mn-AK5" secondAttribute="leading" constant="10" id="X2I-cy-7mq"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="320" height="350"/>
+                    <size key="freeformSize" width="320" height="400"/>
                     <connections>
                         <outlet property="directMonitor" destination="xCk-Cd-2xB" id="tBP-74-SfG"/>
                         <outlet property="directMonitorVolume" destination="m2d-qD-DfN" id="QBM-dn-ps8"/>
                         <outlet property="internalMic" destination="kAS-u5-7Is" id="PbF-et-17j"/>
                         <outlet property="latencyPicker" destination="3QB-xg-2Gb" id="8FQ-fP-Ady"/>
+                        <outlet property="noiseCancellation" destination="Bkr-zY-t4S" id="Yo3-PB-tem"/>
                         <outlet property="recordingButton" destination="Dq1-2h-J0C" id="aCD-Xf-iiU"/>
                         <segue destination="JXn-g0-EZv" kind="unwind" identifier="dismissControls" unwindAction="unwind:" id="frd-SA-Uhu"/>
                     </connections>
@@ -1018,16 +1046,16 @@
         <image name="record.circle" catalog="system" width="128" height="123"/>
         <image name="syncstage" width="350" height="332"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

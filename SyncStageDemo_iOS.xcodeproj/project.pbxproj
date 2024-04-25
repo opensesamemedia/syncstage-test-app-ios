@@ -27,9 +27,9 @@
 		A4C66329291D74B300518F9B /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C66328291D74B300518F9B /* OptionsViewController.swift */; };
 		A4C663862927FBDB00518F9B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C663852927FBDB00518F9B /* UserCell.swift */; };
 		A4C663882927FC2500518F9B /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C663872927FC2500518F9B /* ConnectionModel.swift */; };
+		A4DE252F2BDAB1A4008BA48D /* SyncStageSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE252E2BDAB1A4008BA48D /* SyncStageSDK */; };
 		A4FEE79D2A4BE7B20089D501 /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE79C2A4BE7B20089D501 /* DiscoveryViewController.swift */; };
 		A4FEE79F2A4BE7C90089D501 /* StartDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE79E2A4BE7C90089D501 /* StartDiscoveryViewController.swift */; };
-		A4FEE7DA2A4C45270089D501 /* SyncStageSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A4FEE7D92A4C45270089D501 /* SyncStageSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4FEE7DA2A4C45270089D501 /* SyncStageSDK in Frameworks */,
+				A4DE252F2BDAB1A4008BA48D /* SyncStageSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +158,7 @@
 			);
 			name = SyncStageDemo_iOS;
 			packageProductDependencies = (
-				A4FEE7D92A4C45270089D501 /* SyncStageSDK */,
+				A4DE252E2BDAB1A4008BA48D /* SyncStageSDK */,
 			);
 			productName = SyncStageDemo_iOS;
 			productReference = A42798FF2846009C00804C62 /* SyncStageDemo_iOS.app */;
@@ -189,7 +189,7 @@
 			);
 			mainGroup = A42798F62846009C00804C62;
 			packageReferences = (
-				A4FEE7D82A4C45270089D501 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */,
+				A4DE252D2BDAB1A4008BA48D /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */,
 			);
 			productRefGroup = A42799002846009C00804C62 /* Products */;
 			projectDirPath = "";
@@ -474,20 +474,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A4FEE7D82A4C45270089D501 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */ = {
+		A4DE252D2BDAB1A4008BA48D /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/opensesamemedia/SyncStageSwiftPackage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.0;
+				minimumVersion = 0.6.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A4FEE7D92A4C45270089D501 /* SyncStageSDK */ = {
+		A4DE252E2BDAB1A4008BA48D /* SyncStageSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A4FEE7D82A4C45270089D501 /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */;
+			package = A4DE252D2BDAB1A4008BA48D /* XCRemoteSwiftPackageReference "SyncStageSwiftPackage" */;
 			productName = SyncStageSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

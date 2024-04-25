@@ -1,14 +1,15 @@
 {
+  "originHash" : "cca7cba441871839e76171e88727dcb952cfecd8cdee8881e48311d970fb716c",
   "pins" : [
     {
       "identity" : "syncstageswiftpackage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/opensesamemedia/SyncStageSwiftPackage.git",
       "state" : {
-        "revision" : "e3d58a237111f1ab900e07e53bb9d6a45fc526bc",
-        "version" : "0.6.0"
+        "revision" : "9e59fa6e12014e366614c8a01ce21438c55630b4",
+        "version" : "0.6.1"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
